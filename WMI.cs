@@ -55,15 +55,30 @@ public WMI() {
 public string GetOS() {
     return getOSName(wmi);
 }
-
-public ulong GetTotalCPUUsage() {
-    Console.WriteLine(wmi);
+public UInt64 GetTotalCPUUsage() {
     return getTotalCPUUsage(wmi); 
 } 
 
+public string GetTotalMemory() {
+    return getTotalMemory(wmi);    
+}
+
+public string GetAvailableMemory() {
+    return getAvailableMemory(wmi);    
+}
+
+public UInt32 GetMemClockSpeed() {
+    return getMemClockSpeed(wmi);    
+}
 
 
+public Int32 GetMemType() {
+    return getMemType(wmi);    
+}
 
+public Int32 GetMemVoltage() {
+    return getMemVoltage(wmi);    
+}
 
 
 
