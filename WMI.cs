@@ -53,8 +53,6 @@ public WMI() {
 }
 
 public string GetOS() {
-    if(wmi == IntPtr.Zero)
-        return "zjebao sie";
     return getOSName(wmi);
 }
 
