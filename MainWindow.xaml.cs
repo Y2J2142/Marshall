@@ -2,7 +2,7 @@
 using System.Windows.Input;
 using System.Threading.Tasks;
 using System.Threading;
-using System.Windows.Threading;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System;
 namespace Marshall
@@ -34,13 +34,29 @@ namespace Marshall
             worker.DoWork += (obj, ea) => {
                 wmi = new WMI();
                 ctx.Post(new SendOrPostCallback(o => {
-                        OS.Content = (string) o;
-                    }), wmi.GetOS());
+                        var l = (List<string>)o;
+                        OS.Content = l[0];
+                        TotalMem.Content = l[1];
+                        MemV.Content = l[2];
+                        MemClck.Content = l[3];
+                        MemType.Content = l[4];
+                    }), new List<string>(){
+                        wmi.GetOS(),
+                        wmi.GetTotalMemory() + "MB",
+                        wmi.GetMemVoltage().ToString() + "mV",
+                        wmi.GetMemClockSpeed().ToString() + "Hz",
+                        wmi.GetMemType().ToString()
+                    });
                 while(true) {
                     var ul = wmi.GetTotalCPUUsage();
                     ctx.Post(new SendOrPostCallback(o => {
-                        CPUUsage.Content = (string) o;
-                    }), ul.ToString());
+                        var l = (List<string>)o;
+                        CPUUsage.Content = l[0];
+                        AvailableMem.Content = l[1];
+                    }),new List<string>() {
+                        wmi.GetTotalCPUUsage().ToString() + "%",
+                        wmi.GetAvailableMemory() + "MB"
+                    });
                 }
             };
             worker.RunWorkerAsync();
