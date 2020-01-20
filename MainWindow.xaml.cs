@@ -29,6 +29,10 @@ namespace Marshall
         public MainWindow()
         {   
             InitializeComponent();
+            this.PreviewKeyDown += new KeyEventHandler((obj, kea) => {
+                if(kea.Key == Key.Escape)
+                    Close();
+            });
             ctx = SynchronizationContext.Current;
             worker = new BackgroundWorker();
             worker.DoWork += (obj, ea) => {
