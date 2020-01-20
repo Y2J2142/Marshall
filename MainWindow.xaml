@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Marshall"
         mc:Ignorable="d"
-        Title="Marshall" Height="450" Width="800" Background="#FF080505"
+        Title="Marshall" Height="340" Width="800" Background="#FF080505"
         WindowStyle="None"
         ResizeMode="NoResize" Tag="Label" FontStretch="UltraExpanded" FontStyle="Normal" FontWeight="UltraLight" FontFamily="Constantia" FontSize="24">
     <Window.Resources>
@@ -18,6 +18,11 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -27,6 +32,17 @@
             <Label Name="OS" Grid.Column="1" Grid.Row="0" />
             <Label Grid.Column="0" Grid.Row="1" >CPU uasge :</Label>
             <Label Name="CPUUsage" Grid.Column="1" Grid.Row="1"/>
+            <Label Grid.Column="0" Grid.Row="2" >Total Memory :</Label>
+            <Label Name="TotalMem" Grid.Column="1" Grid.Row="2"/>
+            <Label Grid.Column="0" Grid.Row="3" >Available Memory :</Label>
+            <Label Name="AvailableMem" Grid.Column="1" Grid.Row="3"/>
+            <Label Grid.Column="0" Grid.Row="4" >Memory Voltage :</Label>
+            <Label Name="MemV" Grid.Column="1" Grid.Row="4"/>
+            <Label Grid.Column="0" Grid.Row="5" >Memory Clock :</Label>
+            <Label Name="MemClck" Grid.Column="1" Grid.Row="5"/>
+            <Label Grid.Column="0" Grid.Row="6" >Memory Type :</Label>
+            <Label Name="MemType" Grid.Column="1" Grid.Row="6"/>
+
         </Grid>
     <Label Content="Marshall" HorizontalAlignment="Right" Height="40" VerticalAlignment="Bottom" Width="100" Foreground="Azure" FontStretch="Expanded" FontFamily="Microsoft JhengHei Light" />
     </StackPanel>
